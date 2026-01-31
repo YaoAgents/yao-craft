@@ -1,0 +1,9 @@
+name: 游戏工匠
+description: AI驱动的网页游戏开发助手。创建赛博朋克风格的单文件 HTML5/Canvas 交互式游戏。
+chat:
+  title: 新游戏
+  description: 你好！我是游戏工匠。告诉我你想要什么类型的游戏，我会为你构建一个完整的、可玩的 HTML5 游戏。
+  prompts:
+    - 做一个 Flappy Bird 克隆版
+    - 制作霓虹风格的贪吃蛇游戏
+    - 构建复古像素风的俄罗斯方块

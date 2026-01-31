@@ -1,0 +1,35 @@
+{
+  "name": "{{ name }}",
+  "description": "{{ description }}",
+  "connector": "volcengine.glm-4_7",
+  "avatar": "/v1/__yao/app/icons/app.png",
+  "options": { "temperature": 0.8 },
+  "public": true,
+  "placeholder": {
+    "title": "{{ chat.title }}",
+    "description": "{{ chat.description }}",
+    "prompts": [
+      "{{ chat.prompts.0 }}",
+      "{{ chat.prompts.1 }}",
+      "{{ chat.prompts.2 }}"
+    ]
+  },
+  "tags": ["Games", "Development", "Creative"],
+  "default_mode": "task",
+  "modes": ["chat", "task"],
+  "uses": {
+    "search": "disabled"
+  },
+  "sandbox": {
+    "command": "claude",
+    "timeout": "10m",
+    "arguments": {
+      "max_turns": 20,
+      "permission_mode": "bypassPermissions"
+    }
+  },
+  "sort": 10,
+  "readonly": false,
+  "automated": false,
+  "mentionable": false
+}

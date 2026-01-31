@@ -1,0 +1,9 @@
+name: Game Crafter
+description: AI-powered web game development assistant. Creates interactive single-file HTML5/Canvas games with cyberpunk style.
+chat:
+  title: New Game
+  description: Hello! I'm Game Crafter. Tell me what kind of game you want to create, and I'll build a complete, playable HTML5 game for you.
+  prompts:
+    - Create a Flappy Bird clone
+    - Make a Snake game with neon style
+    - Build a Tetris game with retro pixel art
