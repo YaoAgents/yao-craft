@@ -7,12 +7,19 @@
 
     ## Output Format - IMPORTANT
 
-    You MUST create a **single HTML file** containing all code:
-    - HTML structure
-    - CSS styles (in `<style>` tag)
-    - JavaScript logic (in `<script>` tag)
+    You MUST create **three separate files** with the same base name:
+    - `game.html` - HTML structure (links to CSS and JS)
+    - `game.css` - All styles
+    - `game.js` - All game logic
 
-    Save the file as `game.html` in the current directory.
+    Then **compress them into a ZIP file**:
+    - ZIP filename: `game.zip`
+    - The ZIP should contain: `game.html`, `game.css`, `game.js`
+
+    Use the following command to create the ZIP:
+    ```bash
+    zip game.zip game.html game.css game.js
+    ```
 
     ## Technology Stack
 
@@ -93,6 +100,7 @@
 
     ## Code Structure Template
 
+    ### game.html
     ```html
     <!DOCTYPE html>
     <html lang="en">
@@ -101,89 +109,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Game Name</title>
       <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-      <style>
-        /* Reset & Base */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-          font-family: 'Orbitron', monospace;
-          background: #0A0A0F;
-          color: #EEEEF0;
-          min-height: 100vh;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          overflow: hidden;
-        }
-        /* Scan lines overlay (optional) */
-        body::after {
-          content: '';
-          position: fixed;
-          inset: 0;
-          background: repeating-linear-gradient(
-            0deg,
-            transparent,
-            transparent 2px,
-            #0A0A0F10 2px,
-            #0A0A0F10 4px
-          );
-          pointer-events: none;
-          z-index: 1000;
-        }
-        /* Game Container */
-        #game-container { 
-          position: relative;
-          border: 2px solid #00F0FF;
-          box-shadow: 0 0 20px #00F0FF40, inset 0 0 20px #00F0FF10;
-        }
-        canvas { display: block; }
-        /* Neon Button */
-        .btn {
-          font-family: 'Orbitron', monospace;
-          font-size: 1rem;
-          font-weight: 700;
-          text-transform: uppercase;
-          letter-spacing: 0.1em;
-          padding: 12px 32px;
-          background: transparent;
-          color: #00F0FF;
-          border: 2px solid #00F0FF;
-          cursor: pointer;
-          transition: all 0.2s;
-          box-shadow: 0 0 10px #00F0FF40;
-        }
-        .btn:hover {
-          background: #00F0FF;
-          color: #0A0A0F;
-          box-shadow: 0 0 20px #00F0FF, 0 0 40px #00F0FF40;
-        }
-        /* Overlay */
-        .overlay {
-          position: absolute;
-          inset: 0;
-          background: #0A0A0FE6;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          gap: 24px;
-        }
-        .title {
-          font-size: 2.5rem;
-          font-weight: 900;
-          color: #00F0FF;
-          text-shadow: 0 0 10px #00F0FF, 0 0 20px #00F0FF80;
-          letter-spacing: 0.15em;
-        }
-        .score-display {
-          position: absolute;
-          top: 16px;
-          right: 16px;
-          font-family: 'Share Tech Mono', monospace;
-          font-size: 1.5rem;
-          color: #00F0FF;
-          text-shadow: 0 0 10px #00F0FF;
-        }
-      </style>
+      <link rel="stylesheet" href="game.css">
     </head>
     <body>
       <div id="game-container">
@@ -191,17 +117,160 @@
         <div class="score-display">SCORE: <span id="score">0</span></div>
         <!-- UI overlays here -->
       </div>
-      <script>
-        // Game constants
-        // Game state
-        // Game loop (requestAnimationFrame)
-        // Input handling
-        // Collision detection
-        // Rendering with neon effects
-        // UI management
-      </script>
+      <script src="game.js"></script>
     </body>
     </html>
+    ```
+
+    ### game.css
+    ```css
+    /* Reset & Base */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: 'Orbitron', monospace;
+      background: #0A0A0F;
+      color: #EEEEF0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+    /* Scan lines overlay (optional) */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        #0A0A0F10 2px,
+        #0A0A0F10 4px
+      );
+      pointer-events: none;
+      z-index: 1000;
+    }
+    /* Game Container */
+    #game-container { 
+      position: relative;
+      border: 2px solid #00F0FF;
+      box-shadow: 0 0 20px #00F0FF40, inset 0 0 20px #00F0FF10;
+    }
+    canvas { display: block; }
+    /* Neon Button */
+    .btn {
+      font-family: 'Orbitron', monospace;
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 12px 32px;
+      background: transparent;
+      color: #00F0FF;
+      border: 2px solid #00F0FF;
+      cursor: pointer;
+      transition: all 0.2s;
+      box-shadow: 0 0 10px #00F0FF40;
+    }
+    .btn:hover {
+      background: #00F0FF;
+      color: #0A0A0F;
+      box-shadow: 0 0 20px #00F0FF, 0 0 40px #00F0FF40;
+    }
+    /* Overlay */
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: #0A0A0FE6;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+    }
+    .title {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: #00F0FF;
+      text-shadow: 0 0 10px #00F0FF, 0 0 20px #00F0FF80;
+      letter-spacing: 0.15em;
+    }
+    .score-display {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 1.5rem;
+      color: #00F0FF;
+      text-shadow: 0 0 10px #00F0FF;
+    }
+    ```
+
+    ### game.js
+    **CRITICAL**: All JavaScript code MUST be wrapped in an `init()` function and called at the end.
+    This ensures DOM elements exist when the code runs.
+    
+    ```javascript
+    // IMPORTANT: Wrap ALL game code in init() function
+    function init() {
+      // Game constants
+      const CANVAS_WIDTH = 800;
+      const CANVAS_HEIGHT = 600;
+
+      // Game state
+      let gameState = 'start'; // 'start', 'playing', 'paused', 'gameover'
+      let score = 0;
+
+      // Game elements - these MUST be inside init() to ensure DOM is ready
+      const canvas = document.getElementById('game');
+      const ctx = canvas.getContext('2d');
+      canvas.width = CANVAS_WIDTH;
+      canvas.height = CANVAS_HEIGHT;
+
+      // Game loop
+      function gameLoop() {
+        update();
+        render();
+        requestAnimationFrame(gameLoop);
+      }
+
+      function update() {
+        if (gameState !== 'playing') return;
+        // Update game logic here
+      }
+
+      function render() {
+        // Clear canvas
+        ctx.fillStyle = '#0A0A0F';
+        ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+        // Render game elements here
+      }
+
+      // Input handling
+      document.addEventListener('keydown', handleKeyDown);
+
+      function handleKeyDown(e) {
+        if (e.key === 'Escape' || e.key === 'p') {
+          togglePause();
+        }
+        // Handle other keys
+      }
+
+      function togglePause() {
+        if (gameState === 'playing') {
+          gameState = 'paused';
+        } else if (gameState === 'paused') {
+          gameState = 'playing';
+        }
+      }
+
+      // Start game loop
+      gameLoop();
+    }
+
+    // Call init() at the end to start the game
+    init();
     ```
 
     ## Quality Standards
@@ -211,6 +280,55 @@
     3. No console errors
     4. Smooth animations
     5. Clear visual feedback
+
+    ## Code Validation - CRITICAL
+
+    **Before creating the ZIP file, you MUST validate your code:**
+
+    1. **init() Wrapper - MANDATORY**: ALL JavaScript code MUST be wrapped in an `init()` function with `init();` called at the end
+    2. **JavaScript Syntax Check**: Ensure all brackets `{}`, parentheses `()`, and braces `[]` are balanced
+    3. **No Trailing Commas**: Avoid trailing commas in function arguments or object literals
+    4. **Quote Consistency**: Use consistent quote style (prefer single quotes)
+    5. **Semicolons**: End all statements with semicolons
+    6. **Function Definitions**: Ensure all functions are properly closed
+
+    **Common Errors to Avoid:**
+    ```javascript
+    // ❌ BAD - Code NOT wrapped in init()
+    const canvas = document.getElementById('game'); // May fail if DOM not ready
+    const ctx = canvas.getContext('2d');
+    gameLoop();
+    
+    // ✅ GOOD - Everything inside init()
+    function init() {
+      const canvas = document.getElementById('game');
+      const ctx = canvas.getContext('2d');
+      // ... all game code ...
+      gameLoop();
+    }
+    init();
+
+    // ❌ BAD - Unexpected ")"
+    function foo(a, b,) { }  // trailing comma
+    
+    // ✅ GOOD
+    function foo(a, b) { }
+
+    // ❌ BAD - Unbalanced brackets
+    if (condition) {
+      doSomething()
+    // missing closing }
+
+    // ✅ GOOD
+    if (condition) {
+      doSomething();
+    }
+    ```
+
+    **Before packaging, your JavaScript code MUST pass syntax validation:**
+
+    Run a syntax check on `game.js` using any available tool (e.g., `node --check`, `eslint`, `jshint`). 
+    The validation MUST pass with no errors. If errors are found, fix them before creating the ZIP file.
 
     ## Workflow - IMPORTANT
 
@@ -234,9 +352,10 @@
     - Implement game logic in JavaScript
     - **Tell the user**: "Now I'm implementing the game. I'll create [describe what you're building]..."
 
-    ### Step 4: Create the File
-    - Save as `game.html`
-    - **Tell the user**: "I've created `game.html` with the complete game."
+    ### Step 4: Create and Package Files
+    - Create `game.html`, `game.css`, `game.js`
+    - Compress into `game.zip` using: `zip game.zip game.html game.css game.js`
+    - **Tell the user**: "I've created the game files and packaged them into `game.zip`."
 
     ### Step 5: Usage Instructions
     - Explain how to open and play the game

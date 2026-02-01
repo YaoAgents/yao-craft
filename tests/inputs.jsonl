@@ -1,0 +1,2 @@
+{"id": "T001-snake-game", "input": "Create a simple Snake game", "timeout": "5m", "assert": {"type": "contains", "value": "game"}}
+{"id": "T002-snake-game-zh", "input": "做一个贪吃蛇游戏", "timeout": "5m", "assert": {"type": "contains", "value": "游戏"}}
